@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=7, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style-dashboard.css">
+        <title>Document</title>
+
+
+        <!-- Link da API charts, cola no head -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- Grafico Pizza -->
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+            //   Aqui mudamos o nome da coluna e valores da porcentagem dos graficos
+            //   Entre aspas simples está o nome e após a virgula está o valor
+              ['Praga',     10],
+              ['Mofo',      11],
+              ['Falha de temperatura',  7],
+              ['Termocromia', 5]
+            ]);
+    
+            var options = {
+                // Aqui muda o nome do grafico
+              title: 'Fatores de perda de material',
+              is3D: true,
+            };
+    
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+        </script>
+
+        <!-- Grafico Donut -->
+        <script type="text/javascript">
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Termocromismo',     10],
+                ['Microorganismos',      8]
+                // ['Commute',  2],
+                // ['Watch TV', 2],
+                // ['Sleep',    7]
+              ]);
+      
+              var options = {
+                //   Nome do grafico
+                title: 'Motivos de prejuizo na Industria textil',
+                pieHole: 0.4,
+              };
+      
+              var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+              chart.draw(data, options);
+            }
+          </script>
+
+
+          
+      
+    </head>
+    <body>
+        
+        <div class="header">
+            <div class="container">
+                <h1 class="titulo"><span class="destaque">Termo</span>Tech</h1>
+                <ul class="navbar">
+                    <b>
+                        <div class="nav-list">
+                            <a href="index.html"><li class="item_menu">Home</li></a>
+                            <a href="sobre.html"><li class="item_menu"><span class="destaque">Sobre Nós</span></li></a>
+                            <a href="#"><li class="item_menu">Dashboard</li></a>
+                            <a href="#"><li class="item_menu">Contato</li></a>
+                            <a href="login.html"><li class="item_menu">Login</li></a>
+                        </div>    
+                    </b>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Sobre -->
+        <div class="container">
+
+            <div class="graph-position">
+            
+                <div id="piechart_3d" class="grafico" style="width: 420px; height: 300px;"></div>
+
+                <div id="donutchart" class="grafico" style="width: 420px; height: 300px;"></div>
+
+            </div>
+
+        </div>        
+          
+        
+
+
+        <div class="footer">
+            <div class="container">
+                <h4 class="final">Feito com amor por um aluno da BandTec! </h4>
+            </div>
+        </div>
+       
+    </body>
+</html>
